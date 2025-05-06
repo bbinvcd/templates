@@ -1,0 +1,30 @@
+{
+    "name": "221122",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc -b && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.7.2",
+        "gsap": "^3.12.7",
+        "slick-carousel": "^1.8.1",
+        "vue": "^3.5.13",
+        "vue-router": "^4.5.0"
+    },
+    "devDependencies": {
+        "@types/jquery": "^3.5.32",
+        "@types/node": "^22.13.1",
+        "@types/vue-router": "^2.0.0",
+        "@vitejs/plugin-vue": "^5.2.1",
+        "@vue/tsconfig": "^0.7.0",
+        "sass": "^1.84.0",
+        "sass-loader": "^16.0.4",
+        "typescript": "~5.7.2",
+        "vite": "^6.1.0",
+        "vue-tsc": "^2.2.0"
+    }
+}

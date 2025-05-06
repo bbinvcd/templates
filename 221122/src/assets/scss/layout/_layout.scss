@@ -1,0 +1,106 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+// 清除浮動
+.clearfix {
+    @include clearfix;
+}
+
+// 全站設定
+html {
+    height: 100%;
+    // border: 1px solid blue;
+}
+
+body {
+    min-width: 1520px; //1024
+    min-height: 100%;
+}
+
+#page-layout {
+    width: 100%;
+    min-width: 1520px; //1024
+
+    // 內頁title
+    .card & {
+        background: url("@/assets/image/lang/zh-cn/title_card.jpg") no-repeat center 110px;
+    }
+    .memberexclusiveii & {
+        background: url("@/assets/image/lang/zh-cn/title_memberexclusiveii.jpg") no-repeat center 110px;
+    }
+    .at1 & {
+        background: url("@/assets/image/lang/zh-cn/title_welcome.jpg") no-repeat center 110px;
+    }
+    .ball & {
+        background: url("@/assets/image/lang/zh-cn/title_sports.jpg") no-repeat center 110px;
+    }
+    .ltlottery & {
+        background: url("@/assets/image/lang/zh-cn/title_lottery.jpg") no-repeat center 110px;
+    }
+    .livetop & {
+        background: url("@/assets/image/lang/zh-cn/title_live.jpg") no-repeat center 110px;
+    }
+    .game & {
+        background: url("@/assets/image/lang/zh-cn/title_game.jpg") no-repeat center 110px;
+    }
+}
+
+.wrap {
+    @include layout-max-width;
+}
+
+// 內頁
+.page-title-wrap {
+    // border: 1px solid red;
+    // 撐出header高度
+    // margin-top: 110px;
+
+    .card & {
+        // background: url("@/assets/image/lang/zh-cn/title_card.png") no-repeat center top;
+        // min-height: 470px;
+        // border: 1px solid #999;
+        // height: image-height("../image/lang/zh-cn/title_card.jpg");
+        // background: url("@/assets/image/lang/zh-cn/title_card.jpg") no-repeat center top;
+    }
+}
+.page-main {
+    // 內頁背景
+    z-index: 1;
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    background: url("@/assets/image/container_bg04_y.png") repeat-y center top;
+    box-shadow: 0 0 10px 0 rgba(41, 43, 51, 0.3); //.2
+    &:before {
+        position: absolute;
+        left: 0;
+        top: -10px;
+        content: "";
+        width: 100%;
+        height: 10px;
+        background: url("@/assets/image/container_bg04_y.png") repeat-y center top;
+    }
+
+    // 內頁content img
+    .page-img {
+        position: absolute;
+        left: -130px;
+        bottom: 0;
+    }
+
+    // 首頁
+    .first & {
+        width: 100%;
+        box-shadow: none;
+        background: url("@/assets/image/first_tab_bg01.jpg") no-repeat center bottom #e4e6f2;
+        &:before {
+            display: none;
+        }
+    }
+}
+
+.page-content {
+    padding: 10px 0 100px;
+    .at1 & {
+        padding: 10px 110px 100px;
+    }
+}

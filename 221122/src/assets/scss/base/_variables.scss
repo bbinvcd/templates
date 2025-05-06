@@ -1,0 +1,56 @@
+//====== 導覽列下拉子選單
+$subnav-type: 2; // 1 = 舊款; 2 = 新款
+$subnav-kind: 4; // 1 = 黑色; 2 = 灰色; 3 = 淺灰色; 4 = 白色
+$subnav-border: transparent; // 下拉選單的邊框顏色，不能使用透明色彩
+$subnav-hover: #f00; // 下拉選單連結hover色
+$subnav-width: 1320px; // 下拉選單的內容寬度
+
+//====== 語系種類
+$lang-kind: Dropmenu; //false = 不使用; Flag = 使用 inline 國旗; Dropmenu = 下拉式; popupFlag = 使用 popup 國旗
+$lang-img: 2; // 1 = 長方形; 2 = 圓形（目前使用 Flag、Dropmenu 才需設定）
+$lang-arrow: 1; // 1 = 白; 2 = 黑（目前使用 Dropmenu 才需設定）
+
+//====== 密碼顯示
+$login-pwd-icon: 1; // 1 = 黑色; 2 = 藍色; 3 = 咖啡色; 4 = 金色; 5 = 綠色; 6 = 深灰色; 7 = 淺灰色; 8 = 紫色; 9 = 紅色; 10 = 白色; 11 = 黃色
+
+//====== HEADER固定
+$header: false; //true = 固定; false = 不固定;
+
+//====== LOGO寬高
+$logo-width: 152px;
+$logo-height: 68px;
+
+//====== 首頁輪播圖
+$first-slider: true; //true = 使用; false = 不使用;
+$first-height: 790px; //圖片高度 = 區塊高度;
+
+//====== 首頁遊戲圖
+$first-game-lang: false; //true = 使用; false = 不使用;
+$first-game-format: jpg; //遊戲圖圖片格式（png、jpg...）
+$first-game-width: 240px; //圖片寬度 = 區塊寬度;
+$first-game-height: 240px; //圖片高度 = 區塊高度;
+
+//====== 首頁APP QR-Code
+$mobile: true; //true = 使用; false = 不使用;
+$mobile-image: 1; //1 = 深底黑字白框; 2 = 深底黃字; 3 = 深底黃字漸層; 4 = 深底藍字白框; 5 = 深底紅字白框; 6 = 淺底白字; 7 = 淺底黑字白框; 8 = 灰底棕字白框; 9 = 灰底黑字白框; 10 = 深底金字黑框; 11 = 深底黑字黃框;
+
+// ====== 優惠樣式
+$promotions-type: light; //light = 淺色版; dark = 深色版;
+
+// 目前語系資料夾
+$lang: "lang/zh-cn/";
+
+// 主風格或常用的配色，自行修改
+$black: #000 !default;
+
+// 基本顏色設定
+$body-bg: #eaedfa;
+$text-color: #292b33;
+$link-color: #000;
+$link-hover-color: #fff !default;
+
+// 基本文字設定
+//## Font, line-height, and color for body text, and more.
+$font-family-base: Microsoft YaHei, Helvetica, STHeiti, arial, sans-serif !default;
+$font-size-base: 16px !default;
+$line-height-base: 1.8 !default;

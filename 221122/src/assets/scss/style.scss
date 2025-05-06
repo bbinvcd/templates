@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+// 基本設定
+@use "base" as *; // 引入所有 base/ 資料夾的內容
+
+// 共用架構
+@use "layout" as *; // 引入所有 layout/ 資料夾的內容

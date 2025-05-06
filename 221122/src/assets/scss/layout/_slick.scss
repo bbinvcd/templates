@@ -1,0 +1,33 @@
+.slick-prev,
+.slick-next {
+    top: unset;
+    border: 0;
+    position: absolute;
+    bottom: 200px;
+    width: 27px;
+    height: 27px;
+    background: url('@/assets/image/slider_arrow2.png') no-repeat left top;
+    z-index: 8;
+
+    &:before {
+        display: none;
+    }
+}
+
+.slick-prev {
+    left: 30px;
+
+    &:hover {
+        background: url('@/assets/image/slider_arrow2.png') no-repeat left bottom;
+    }
+}
+
+.slick-next {
+    background: url('@/assets/image/slider_arrow2.png') no-repeat right top;
+    left: auto;
+    right: 30px;
+
+    &:hover {
+        background: url('@/assets/image/slider_arrow2.png') no-repeat right bottom;
+    }
+}

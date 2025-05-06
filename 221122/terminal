@@ -1,0 +1,8 @@
+mkdir -p src/assets/images
+mkdir -p public/images
+mkdir -p src/assets/images/not-use
+npm install gsap
+npm install -D @types/node
+npm uninstall vue-router
+npm install vue-router@4
+npm install -D @types/vue-router
