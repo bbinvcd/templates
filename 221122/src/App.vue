@@ -7,6 +7,7 @@ const sharedState = ref<SharedState>({
     isLoggedIn: false, // 登入狀態
     isHomePage: false, // 是否為首頁
     isFixed: false, // 添加缺少的屬性
+	isLang: 'zh' // 添加缺少的屬性
 });
 
 // 更新方法
@@ -26,10 +27,6 @@ provide("updateSharedState", updateSharedState);
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/scss/base/variables" as *; // 使用 @ 別名
-@use "@/assets/scss/base/mixins" as *; // 使用 @ 別名
-.page-wrap {
-    width: 100%;
-    min-width: 1520px; //1024
-}
+@use "@/assets/scss/base/variables" as *;
+@use "@/assets/scss/base/mixins" as *;
 </style>

@@ -2,105 +2,101 @@
 @use "../base/mixins" as *;
 // 清除浮動
 .clearfix {
-    @include clearfix;
+	@include clearfix;
 }
 
 // 全站設定
 html {
-    height: 100%;
-    // border: 1px solid blue;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	text-size-adjust: 100%;
+	line-height: 1;
+	background-color: $body-bg;
 }
 
 body {
-    min-width: 1520px; //1024
-    min-height: 100%;
+	position: relative;
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: $text-color;
+	margin: 0;
+	min-width: 1520px;
 }
 
-#page-layout {
-    width: 100%;
-    min-width: 1520px; //1024
-
-    // 內頁title
-    .card & {
-        background: url("@/assets/image/lang/zh-cn/title_card.jpg") no-repeat center 110px;
-    }
-    .memberexclusiveii & {
-        background: url("@/assets/image/lang/zh-cn/title_memberexclusiveii.jpg") no-repeat center 110px;
-    }
-    .at1 & {
-        background: url("@/assets/image/lang/zh-cn/title_welcome.jpg") no-repeat center 110px;
-    }
-    .ball & {
-        background: url("@/assets/image/lang/zh-cn/title_sports.jpg") no-repeat center 110px;
-    }
-    .ltlottery & {
-        background: url("@/assets/image/lang/zh-cn/title_lottery.jpg") no-repeat center 110px;
-    }
-    .livetop & {
-        background: url("@/assets/image/lang/zh-cn/title_live.jpg") no-repeat center 110px;
-    }
-    .game & {
-        background: url("@/assets/image/lang/zh-cn/title_game.jpg") no-repeat center 110px;
-    }
+a {
+	color: $link-color;
+	text-decoration: none;
+	cursor: pointer;
 }
 
-.wrap {
-    @include layout-max-width;
+.page-layout {
+	min-height: 100vh;
+	font-size: 0.75rem;
+	// 內頁title
+	.card & {
+		background: url("@/assets/image/lang/zh-cn/title_card.jpg") no-repeat 50% 110px;
+	}
+	.memberexclusiveii & {
+		background: url("@/assets/image/lang/zh-cn/title_memberexclusiveii.jpg") no-repeat 50% 110px;
+	}
+	.at1 & {
+		background: url("@/assets/image/lang/zh-cn/title_welcome.jpg") no-repeat 50% 110px;
+	}
+	.ball & {
+		background: url("@/assets/image/lang/zh-cn/title_sports.jpg") no-repeat 50% 110px;
+	}
+	.ltlottery & {
+		background: url("@/assets/image/lang/zh-cn/title_lottery.jpg") no-repeat 50% 110px;
+	}
+	.livetop & {
+		background: url("@/assets/image/lang/zh-cn/title_live.jpg") no-repeat 50% 110px;
+	}
+	.game & {
+		background: url("@/assets/image/lang/zh-cn/title_game.jpg") no-repeat 50% 110px;
+	}
 }
 
 // 內頁
-.page-title-wrap {
-    // border: 1px solid red;
-    // 撐出header高度
-    // margin-top: 110px;
+.page-body {
+	// 內頁背景
+	position: relative;
+	width: 1400px;
+	margin: 0 auto;
+	background: url("@/assets/image/container_bg04_y.png") repeat-y 50% 0;
+	box-shadow: 0 0 10px 0 rgba(41, 43, 51, 0.3);
+	padding: 10px 0 100px;
+	.at1 & {
+		width: 1180px;
+		padding: 10px 110px 100px;
+	}
+	&:before {
+		position: absolute;
+		left: 0;
+		top: -10px;
+		content: "";
+		width: 100%;
+		height: 10px;
+		background: url("@/assets/image/container_bg04_y.png") repeat-y 50% 0;
+	}
 
-    .card & {
-        // background: url("@/assets/image/lang/zh-cn/title_card.png") no-repeat center top;
-        // min-height: 470px;
-        // border: 1px solid #999;
-        // height: image-height("../image/lang/zh-cn/title_card.jpg");
-        // background: url("@/assets/image/lang/zh-cn/title_card.jpg") no-repeat center top;
-    }
-}
-.page-main {
-    // 內頁背景
-    z-index: 1;
-    position: relative;
-    width: 1400px;
-    margin: 0 auto;
-    background: url("@/assets/image/container_bg04_y.png") repeat-y center top;
-    box-shadow: 0 0 10px 0 rgba(41, 43, 51, 0.3); //.2
-    &:before {
-        position: absolute;
-        left: 0;
-        top: -10px;
-        content: "";
-        width: 100%;
-        height: 10px;
-        background: url("@/assets/image/container_bg04_y.png") repeat-y center top;
-    }
+	// 內頁content img
+	.page-img {
+		width: 392px;
+		height: 185px;
+		position: absolute;
+		left: -130px;
+		bottom: 0;
+		background-image: url("@/assets/image/container_bg01.png");
+	}
 
-    // 內頁content img
-    .page-img {
-        position: absolute;
-        left: -130px;
-        bottom: 0;
-    }
-
-    // 首頁
-    .first & {
-        width: 100%;
-        box-shadow: none;
-        background: url("@/assets/image/first_tab_bg01.jpg") no-repeat center bottom #e4e6f2;
-        &:before {
-            display: none;
-        }
-    }
-}
-
-.page-content {
-    padding: 10px 0 100px;
-    .at1 & {
-        padding: 10px 110px 100px;
-    }
+	// 首頁
+	.first & {
+		width: 100%;
+		box-shadow: none;
+		background: url("@/assets/image/first_tab_bg01.jpg") no-repeat 50% 100% #e4e6f2;
+		padding: 10px 0 0 0;
+		&:before {
+			display: none;
+		}
+	}
 }

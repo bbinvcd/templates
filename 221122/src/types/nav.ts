@@ -16,10 +16,11 @@ export interface NavItem {
     path: string;
     id: string;
     className: string;
-    hasDropdown?: boolean;
-    hasUrl?: boolean;
-    category?: 'balls' | 'lives' | 'games' | 'lotterys' | 'cards' | 'mores';
-    platforms?: PlatformItem[];
+    hasDropdown ?: boolean;
+    hasUrl ?: boolean;
+    category ?: 'balls' | 'lives' | 'games' | 'lotterys' | 'cards' | 'mores';
+    platforms ?: PlatformItem[];
+    hot ?: boolean;
 }
 
 export interface NavData {

@@ -3,8 +3,8 @@
         <div class="nav-dropdowns" :class="{ 'is-fixed': isFixed }">
             <div v-for="category in ['balls', 'lives', 'games', 'lotterys', 'cards']" :key="category" :id="`nav-${category}`" class="ele-drop-group" :class="{ active: activeDropdown === category || hoverCategory === category }" @mouseenter="hoverCategory = category" @mouseleave="hoverCategory = null">
                 <div class="lsub-inner-wrap">
-                    <a v-for="platform in getPlatforms(category)" :key="platform.pn_link" :href="platform.pn_link" :class="platform.pn_class">
-                        <span v-if="platform.pn_logo" :style="logoImage(category, platform.pn_logo)"> </span>
+                    <a v-for="platform in getPlatforms(category)" :key="platform.pn_link" href="javascript:void(0)" :class="platform.pn_class">
+                        <span v-if="platform.pn_logo" :style="logoImage(category, platform.pn_logo)"></span>
                         {{ platform.pn_name }}
                     </a>
                 </div>
@@ -58,7 +58,7 @@ defineExpose({
     },
     hideDropdown: () => {
         activeDropdown.value = null;
-    },
+    }
 });
 </script>
 
@@ -84,12 +84,9 @@ defineExpose({
     }
 }
 // 下拉子選單
-@if $subnav-type==1 {
+@if $subnav-type == 1 {
     .ele-drop-group {
         width: 130px;
-        * {
-            box-sizing: border-box;
-        }
     }
 
     .lsub-inner-wrap {
@@ -97,7 +94,7 @@ defineExpose({
         border-width: 1px;
         border-style: solid;
         border: 1px solid $subnav-border;
-        box-shadow: rgba(16, 16, 16, 0.3) 2px 3px 3px;
+        box-shadow: rgba( 16, 16, 16, 0.3) 2px 3px 3px;
         a {
             display: block;
             height: 38px;
@@ -109,23 +106,23 @@ defineExpose({
                 color: $subnav-hover;
             }
         }
-        @if $subnav-kind==1 {
-            background: rgba(0, 0, 0, 0.95);
+        @if $subnav-kind == 1 {
+            background: rgba( 0, 0, 0, 0.95);
             a {
-                color: #fff;
+                color: #FFF;
             }
-        } @else if $subnav-kind==2 {
-            background: rgba(85, 85, 85, 0.95);
+        } @else if $subnav-kind == 2 {
+            background: rgba( 85, 85, 85, 0.95);
             a {
-                color: #fff;
+                color: #FFF;
             }
-        } @else if $subnav-kind==3 {
-            background: rgba(255, 255, 255, 0.8);
+        } @else if $subnav-kind == 3 {
+            background: rgba( 255, 255, 255, 0.8);
             a {
                 color: #000;
             }
-        } @else if $subnav-kind==4 {
-            background: rgba(255, 255, 255, 0.8);
+        } @else if $subnav-kind == 4 {
+            background: rgba( 255, 255, 255, 0.8);
             a {
                 color: #000;
             }
@@ -144,33 +141,33 @@ defineExpose({
             }
         }
     }
-} @else if $subnav-type==2 {
+} @else if $subnav-type == 2 {
     .ele-drop-group {
         top: 100%;
         width: 100vw;
         z-index: 100;
         min-width: $subnav-width;
-        box-shadow: rgba(16, 16, 16, 0.3) 2px 3px 3px;
+        box-shadow: rgba( 16, 16, 16, 0.3) 2px 3px 3px;
         padding: 30px 0;
         box-sizing: content-box;
         opacity: 0.95;
-        @if $subnav-kind==1 {
-            background: rgba(18, 18, 18, 0.95);
+        @if $subnav-kind == 1 {
+            background: rgba( 18, 18, 18, 0.95);
             a {
-                color: #fff;
+                color: #FFF;
             }
-        } @else if $subnav-kind==2 {
-            background: rgba(85, 85, 85, 0.95);
+        } @else if $subnav-kind == 2 {
+            background: rgba( 85, 85, 85, 0.95);
             a {
-                color: #fff;
+                color: #FFF;
             }
-        } @else if $subnav-kind==3 {
-            background: rgba(249, 249, 249, 0.95);
+        } @else if $subnav-kind == 3 {
+            background: rgba( 249, 249, 249, 0.95);
             a {
                 color: #333;
             }
-        } @else if $subnav-kind==4 {
-            background: rgba(255, 255, 255, 0.95);
+        } @else if $subnav-kind == 4 {
+            background: rgba( 255, 255, 255, 0.95);
             a {
                 color: #333;
             }
@@ -183,12 +180,12 @@ defineExpose({
 
     .lsub-inner-wrap {
         @include clearfix;
-        width: $subnav-width;
+        width: 1095px;
         min-height: 200px;
         margin: 0 auto;
         padding-left: 225px;
         background-repeat: no-repeat;
-        background-position: left top;
+        background-position: 0 0;
         $ele-drop-nav: ball, live, game, card;
         @each $var in $ele-drop-nav {
             #nav-#{$var}s & {
@@ -207,35 +204,23 @@ defineExpose({
         a {
             span {
                 display: block;
-                @if $subnav-width < 1065px {
-                    width: calc(($subnav-width - 225px) / 6);
-                } @else if $subnav-width < 1185px {
-                    width: calc(($subnav-width - 225px) / 7);
-                } @else if $subnav-width < 1305px {
-                    width: calc(($subnav-width - 225px) / 8);
-                } @else if $subnav-width < 1425px {
-                    width: calc(($subnav-width - 225px) / 9);
-                } @else {
-                    width: 120px;
-                }
                 height: 40px;
                 background-repeat: no-repeat;
             }
 
             float: left;
-            display: block;
             @if $subnav-width < 1065px {
-                width: calc(($subnav-width - 225px) / 6);
+                width: calc(100% / 6);
             } @else if $subnav-width < 1185px {
-                width: calc(($subnav-width - 225px) / 7);
+                width: calc(100% / 7);
             } @else if $subnav-width < 1305px {
-                width: calc(($subnav-width - 225px) / 8);
+                width: calc(100% / 8);
             } @else if $subnav-width < 1425px {
-                width: calc(($subnav-width - 225px) / 9);
+                width: calc(100% / 9);
             } @else {
                 width: 120px;
             }
-            height: 90px;
+            padding-bottom: 25px;
             font-size: 14px;
             text-align: center;
             @include text-truncate;

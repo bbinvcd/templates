@@ -1,6 +1,7 @@
 <template>
-    <div v-if="isHomePage" class="first-login-wrap">
-        <div v-if="isLoggedIn" class="login-wrap">
+    <!-- 首頁、已登入 -->
+    <div v-if="isFirstLoginWrap" class="first-login-wrap">
+        <div class="login-wrap">
             <p>
 				<i></i>
 				<span>会员资料</span>
@@ -63,7 +64,11 @@
                 </div>
             </div>
         </div>
-        <div v-else class="login-wrap">
+    </div>
+
+    <!-- 首頁、未登入 -->
+    <div v-else-if="isFirstWrap" class="first-login-wrap">
+        <div class="login-wrap">
             <p>
 				<i></i>
 				<span>会员登入</span>
@@ -74,8 +79,8 @@
                     <span id="js-acc-unicode" class="acc-unicode">@bin</span>
                 </p>
                 <p class="login-unit login-unit-pwd">
-                    <input v-model="password" name="passwd" :type="showPassword ? 'text' : 'password'" class="login-input" placeholder="密码" />
-                    <span :class="{ 'is-show': showPassword }" class="login-pwd-icon" @click="showPassword = !showPassword"></span>
+                    <input v-model="password" name="passwd" type="password" class="login-input" placeholder="密码" />
+                    <span class="login-pwd-icon"></span>
                 </p>
             </form>
             <div class="login-btn-wrap">
@@ -85,8 +90,10 @@
             </div>
         </div>
     </div>
-    <div v-else class="page-login-wrap">
-        <div v-if="isLoggedIn" class="login-wrap">
+
+    <!-- 非首頁、已登入 -->
+    <div v-else-if="isLoggedInWrap" class="page-login-wrap">
+        <div class="login-wrap">
             <!-- meminfo -->
             <div class="meminfo-wrap">
                 <div class="mem-info clearfix">
@@ -150,15 +157,19 @@
                 </div>
             </div>
         </div>
-        <div v-else class="login-wrap">
+    </div>
+
+    <!-- 非首頁、未登入 -->
+    <div v-else-if="isOtherLoginWrap" class="page-login-wrap">
+        <div class="login-wrap">
             <form id="LoginForm">
                 <p class="login-unit login-unit-user">
                     <input name="username" type="text" class="login-input" placeholder="账号" />
                     <span id="js-acc-unicode" class="acc-unicode">@bin</span>
                 </p>
                 <p class="login-unit login-unit-pwd">
-                    <input name="passwd" :type="showPassword ? 'text' : 'password'" class="login-input" placeholder="密码" />
-                    <span :class="{ 'is-show': showPassword }" class="login-pwd-icon" @click="showPassword = !showPassword"></span>
+                    <input name="passwd" type="password" class="login-input" placeholder="密码" />
+                    <span class="login-pwd-icon"></span>
                 </p>
             </form>
             <div class="login-btn-wrap">
@@ -198,7 +209,6 @@ const membalances = ref([
         balance: "---",
     }
 ]);
-const showPassword = ref(false);
 
 const isHovered = ref(false);
 const isDropdownHovered = ref(false);
@@ -208,7 +218,6 @@ const triggerIcon = ref<HTMLElement | null>(null);
 const isHomePage = computed(() => {
     return route.path === "/";
 });
-const isLoggedIn = computed(() => sharedState.value.isLoggedIn);
 
 // 登入處理函數
 const handleLogin = () => {
@@ -229,6 +238,12 @@ const handleLogout = () => {
         document.documentElement.classList.remove("is-login");
     }
 };
+
+// 使用計算屬性來處理條件
+const isFirstLoginWrap = computed(() => isHomePage.value && sharedState.value.isLoggedIn);
+const isFirstWrap = computed(() => isHomePage.value && !sharedState.value.isLoggedIn);
+const isLoggedInWrap = computed(() => !isHomePage.value && sharedState.value.isLoggedIn);
+const isOtherLoginWrap = computed(() => !isHomePage.value && !sharedState.value.isLoggedIn);
 
 const setDropdownPosition = () => {
     const iconEl = triggerIcon.value;
@@ -268,17 +283,17 @@ const shouldShowDropdown = computed(() => {
 @use "@/assets/scss/base/mixins" as *;
 // meminfo i 下拉選單設定
 @include meminfo(
-    $mem-color: #fff,
+    $mem-color: #FFF,
     // 1 文字顏色
-    $mem-bg: #d9ac8d,
+    $mem-bg: #D9AC8D,
     // 2 背景顏色
-    $mem-tool-bg: #df8d69,
+    $mem-tool-bg: #DF8D69,
     // 3 餘額轉換背景顏色
-    $mem-tool-color: #4c4c4c,
+    $mem-tool-color: #4C4C4C,
     // 4 餘額轉換按鈕文字顏色
-    $mem-tool-btn-bg: #fff,
+    $mem-tool-btn-bg: #FFF,
     // 5 餘額轉換按鈕背景顏色
-    $mem-line-color: #0030ff // 6 餘額轉換上線條顏色
+    $mem-line-color: #0030FF // 6 餘額轉換上線條顏色
 );
 
 // 首頁 登入
@@ -297,7 +312,7 @@ const shouldShowDropdown = computed(() => {
         top: 230px;
         right: 0;
         width: 390px;
-        border: 1px solid #fff;
+        border: 1px solid #FFF;
         background: url("@/assets/image/login_bg01.png") repeat-x 0 0 rgba( 241, 243, 252, 0.9);
         box-shadow: rgba( 112, 122, 140, 0.2) 0 0 10px;
 
@@ -406,7 +421,7 @@ const shouldShowDropdown = computed(() => {
             width: calc(100% - 68px);
             padding-right: 50px;
             padding-left: 18px;
-            border-top: 1px solid #fff;
+            border-top: 1px solid #FFF;
             height: 59px;
         }
     }
@@ -417,7 +432,7 @@ const shouldShowDropdown = computed(() => {
     right: 10px;
     top: 0;
     line-height: 50px;
-    font-size: 16px;
+	font-size: 16px;
     .first & {
         right: 20px;
         line-height: 60px;
@@ -469,7 +484,6 @@ const shouldShowDropdown = computed(() => {
 .login-btn-wrap {
     vertical-align: middle;
     display: inline-block;
-	font-size: 14px;
     .first & {
         padding-top: 5px;
         text-align: right;
@@ -486,11 +500,11 @@ const shouldShowDropdown = computed(() => {
     border-radius: 25px;
     box-shadow: 0 5px 15px 0 rgba( 64, 76, 128, 0.1);
     line-height: 48px;
-    border: 1px solid rgba( #f1f3fc, 0.7);
+    border: 1px solid rgba( #F1F3FC, 0.7);
     background: url("@/assets/image/first_join_icon.png") no-repeat 24px 50%;
     &:hover {
-        background-color: rgba( #f1f3fc, 0.8);
-        border: 1px solid rgba( #f1f3fc, 1);
+        background-color: rgba( #F1F3FC, 0.8);
+        border: 1px solid rgba( #F1F3FC, 1);
         color: #000;
     }
     .first & {
@@ -515,11 +529,11 @@ const shouldShowDropdown = computed(() => {
     border-radius: 25px;
     box-shadow: 0 5px 15px 0 rgba( 64, 76, 128, 0.1);
     line-height: 48px;
-    border: 1px solid rgba( #f1f3fc, 0.7);
+    border: 1px solid rgba( #F1F3FC, 0.7);
     background: url("@/assets/image/first_forgetpw_icon.png") no-repeat 24px 50%;
     &:hover {
-        background-color: rgba( #f1f3fc, 0.8);
-        border: 1px solid rgba( #f1f3fc, 1);
+        background-color: rgba( #F1F3FC, 0.8);
+        border: 1px solid rgba( #F1F3FC, 1);
         color: #000;
     }
     .first & {
@@ -548,11 +562,11 @@ const shouldShowDropdown = computed(() => {
     line-height: 50px;
     border-radius: 10px;
     box-shadow: 0 5px 15px 0 rgba( 64, 76, 128, 0.1);
-    background: linear-gradient(#fefefe 0, #f0f2ff 33%, #f0f2ff 66%, #fefefe 100%);
+    background: linear-gradient(#FEFEFE 0, #F0F2FF 33%, #F0F2FF 66%, #FEFEFE 100%);
     &:hover {
-        background: linear-gradient(#e9cab3 0, #d3aa8f 100%);
-        color: #fff;
-        text-shadow: 0 2px 5px rgba( #bf8b68, 1);
+        background: linear-gradient(#E9CAB3 0, #D3AA8F 100%);
+        color: #FFF;
+        text-shadow: 0 2px 5px rgba( #BF8B68, 1);
     }
     .first & {
         width: 390px;
@@ -570,7 +584,7 @@ const shouldShowDropdown = computed(() => {
     width: 960px;
     margin: 0 auto;
     text-align: left;
-    a {
+	a {
         &:hover {
             text-decoration: underline;
         }
@@ -604,7 +618,7 @@ const shouldShowDropdown = computed(() => {
     }
     .fa-plus-square,
     .ele-first-balance strong {
-        color: #4560e5;
+        color: #4560E5;
     }
 
     // 首頁登入後
@@ -613,7 +627,7 @@ const shouldShowDropdown = computed(() => {
         color: $text-color;
         width: auto;
         margin: 0 15px;
-        background: #fff;
+        background: #FFF;
         border-radius: 10px;
         padding: 25px;
         box-shadow: 0 5px 15px 0 rgba( 64, 76, 128, 0.1);
@@ -621,19 +635,19 @@ const shouldShowDropdown = computed(() => {
 }
 
 .login-Menual {
-    color: $link-color;
+	color: $link-color;
     .first & {
         padding-top: 10px;
     }
     li {
         margin-right: 4px;
         display: inline-block;
-        a {
-            color: inherit;
-        }
+		a {
+			color: inherit;
+		}
     }
     .login-Menual-logout a {
-        color: #4560e5;
+        color: #4560E5;
     }
 }
 
@@ -653,15 +667,15 @@ const shouldShowDropdown = computed(() => {
 }
 
 .ele-obalance-item-wrap {
-    top: 20px;
-    left: 0;
+	top: 20px;
+	left: 0;
 }
 
 .ele-obalance-wrap {
     float: left;
     margin-left: 5px;
     cursor: pointer;
-    position: relative;
+	position: relative;
 }
 
 .ele-accinfo {

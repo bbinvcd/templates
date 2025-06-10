@@ -1,7 +1,7 @@
 <template>
     <div class="logo-wrap">
         <div class="logo-content">
-            <a href="index.php"></a>
+            <a href="/"></a>
         </div>
     </div>
 </template>
@@ -10,7 +10,7 @@
 // 如果需要的話可以定義 props
 defineProps<{
     // 例如：是否要連結到首頁
-    linkable?: boolean;
+    linkable ?: boolean;
 }>();
 </script>
 
@@ -21,8 +21,7 @@ defineProps<{
     position: relative;
     width: 1320px;
     margin: 0 auto;
-    .isfixed &{
-        z-index: 22222222;
+    .isfixed & {
         .logo-content {
             top: 100px;
         }
@@ -34,15 +33,14 @@ defineProps<{
         top: -10px;
         width: 300px;
         height: 200px;
-        background: url("@/assets/image/logo_bg.png") no-repeat left top;
+        background: url("@/assets/image/logo_bg.png") no-repeat 0 0;
         padding: 28px 0 0 72px;
-        // display: inline-block;
         a {
             display: block;
             width: $logo-width;
             height: $logo-height;
-            @include bg("logo.png");
-            background-position: center;
+			background-image: url(@/assets/image/logo.png);
+            background-position: 50%;
             background-repeat: no-repeat;
         }
     }

@@ -100,6 +100,13 @@
   resolved "https://registry.npmjs.org/@types/sizzle/-/sizzle-2.3.9.tgz"
   integrity sha512-xzLEyKB50yqCUPUJkIsrVvoWNfFUbIZI+RspLWt8u+tIW/BetMBZtgV2LY/2o+tYH8dRvQ+eoPf3NdhQCcLE2w==
 
+"@types/swiper@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.npmjs.org/@types/swiper/-/swiper-6.0.0.tgz"
+  integrity sha512-QPZRgxZ+ivXXtzV43B3LxpXUIC7FE/EoKM+rtxngmgt2M7eeUYypZhyqZD8UxJtlBcUDw/ATGoVeSNpvBBrz2w==
+  dependencies:
+    swiper "*"
+
 "@types/vue-router@^2.0.0":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@types/vue-router/-/vue-router-2.0.0.tgz"
@@ -186,7 +193,7 @@
 "@vue/devtools-api@^6.6.4":
   version "6.6.4"
   resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.6.4.tgz"
-  integrity sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==
+  integrity sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xFFF+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==
 
 "@vue/language-core@2.2.0":
   version "2.2.0"
@@ -502,6 +509,11 @@ source-map-js@^1.2.0, source-map-js@^1.2.1, "source-map-js@>=0.6.2 <2.0.0":
   version "1.2.1"
   resolved "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz"
   integrity sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
+
+swiper@*, swiper@^11.2.7:
+  version "11.2.7"
+  resolved "https://registry.npmjs.org/swiper/-/swiper-11.2.7.tgz"
+  integrity sha512-oPJCwdcjFMw3SoBM7AdB1RJzjT7JaE4Mg7TWceTmJ/i2OtF8L01Ct+5eOf48nG3trgR0wXFekWdfnTdl0eg6Pg==
 
 to-regex-range@^5.0.1:
   version "5.0.1"

@@ -1,4 +1,3 @@
 @forward "variables"; // 變數要最先引入
-// @forward "base"; // 重置檔已經提前先引入了，在main.ts
 @forward "mixins";
 @forward "functions";

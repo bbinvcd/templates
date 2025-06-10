@@ -1,393 +1,342 @@
-
-
 // footer logo animate
-@keyframes marqueeEffect {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(-1010px, 0);
-    }
+@keyframes marquee-effect {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(-1010px, 0);
+	}
 }
 
 // tab object animate
-@keyframes moveUp {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes move-up {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
-@keyframes moveDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+
+@keyframes move-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
-@keyframes moveIn {
-    0% {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+
+@keyframes move-in {
+	0% {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
 // slider animate
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
-@keyframes upDown {
-    // 骰子
-    0% {
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+@keyframes up-down {
+	// 骰子
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-20px);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }
 
-@keyframes rotateObj {
-    // 輪盤+龍舞下方籌碼
-    0% {
-        transform: translateX(15%) translateY(15%);
-    }
-    25% {
-        transform: translateX(20%) translateY(0);
-    }
-    50% {
-        transform: translateX(15%) translateY(5%);
-    }
-    75%{
-        transform: translateX(5%) translateY(0);
-    }
-    100% {
-        transform: translateX(15%) translateY(15%);
-    }
+@keyframes rotate-obj {
+	// 輪盤+龍舞下方籌碼
+	0% {
+		transform: translateX(15%) translateY(15%);
+	}
+	25% {
+		transform: translateX(20%) translateY(0);
+	}
+	50% {
+		transform: translateX(15%) translateY(5%);
+	}
+	75% {
+		transform: translateX(5%) translateY(0);
+	}
+	100% {
+		transform: translateX(15%) translateY(15%);
+	}
 }
 
-
-
-
-
-
-
-
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes fade-in-up {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-
-@keyframes skill-in{
-    0% {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-@keyframes skill-out{
-    0% {
-        opacity: 1;
-        transform: translateY(100%);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(0);
-    }
-}
-@keyframes contentMove1{
-    0% {
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(-20px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+@keyframes skill-in {
+	0% {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-
-
-@keyframes fadeInUpDown2{
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+@keyframes skill-out {
+	0% {
+		opacity: 1;
+		transform: translateY(100%);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(0);
+	}
 }
 
-
-
-@keyframes zoomIn{
-    0% {
-        opacity: 0;
-        transform:scale(1);
-    }
-    50%{
-        transform:scale(1.2);
-    }
-
-    100% {
-        opacity: 1;
-        transform:scale(1);
-    }
-}
-@keyframes zoomIn_arrow{
-    0% {
-        opacity: 0;
-        transform: rotate(180deg);
-    }
-    50%{
-        transform: scale(1.2);
-        // transform: rotate(90deg);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-        transform: rotate(0);
-    }
+@keyframes contentMove1 {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-20px);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }
 
-
-@keyframes rotateImg{
-    0%{
-        opacity: 0;
-        transform: rotate(0);
-    }
-    50%{
-        transform: rotate(90deg);
-        transform: scale(1.2)
-    }
-    100%{
-        opacity: 1;
-        transform: rotate(180deg);
-    }
-
+@keyframes fade-in-up-down2 {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
+
+@keyframes zoom-in {
+	0% {
+		opacity: 0;
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes zoom-in-arrow {
+	0% {
+		opacity: 0;
+		transform: rotate(180deg);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+		transform: rotate(0);
+	}
+}
+
+@keyframes rotate-img {
+	0% {
+		opacity: 0;
+		transform: rotate(0);
+	}
+	50% {
+		transform: rotate(90deg);
+		transform: scale(1.2);
+	}
+	100% {
+		opacity: 1;
+		transform: rotate(180deg);
+	}
+}
+
 // 藍圈圈
 @keyframes deco_loop1 {
-    0% {
-        left: 10%;
-        // transform: translateX(-50px);
-    }
-    50%{
-        left: 74%;
-    }
-    100% {
-        left: 10%;
-        // transform: translateX(0);
-    }
+	0% {
+		left: 10%;
+	}
+	50% {
+		left: 74%;
+	}
+	100% {
+		left: 10%;
+	}
 }
+
 // 星星
-@keyframes zoomIn_start{
-    0% {
-        // top: -40px;
-        opacity: 0;
-        transform:scale(1);
-    }
-    50%{
-        // top: 0;
-        transform:scale(1.5);
-    }
-
-    100% {
-        // top: 0;
-        opacity: 1;
-        transform:scale(1);
-    }
+@keyframes zoom-in-start {
+	0% {
+		opacity: 0;
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.5);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
-// 箭頭
-@keyframes arrow_deco{
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-    50%{
-        // transform: scale(1.5);
-    }
 
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+// 箭頭
+@keyframes arrow-deco {
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	50% {
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
 }
 
 // 條狀物
-@keyframes stick_animate1{
-    0% {
-        opacity: 0;
-        width: 240px;
-        // transform: translateX(100%);
-    }
-    50%{
-        width: 140px;
-    }
-    100% {
-        opacity: 1;
-        width: 240px;
-        // transform: translateX(0);
-    }
-}
-@keyframes stick_animate2{
-    0% {
-        opacity: 0;
-        width: 100px;
-        // transform: translateX(100%);
-    }
-    50%{
-        width: 140px;
-    }
-    100% {
-        opacity: 1;
-        width: 100px;
-        // transform: translateX(0);
-    }
+@keyframes stick-animate1 {
+	0% {
+		opacity: 0;
+		width: 240px;
+	}
+	50% {
+		width: 140px;
+	}
+	100% {
+		opacity: 1;
+		width: 240px;
+	}
 }
 
-
-
-
-
-@keyframes footer_obj_move1 {
-    0% {
-        margin-top: 100px;
-        // transform: translateY(0);
-    }
-
-    50% {
-        margin-top: 105px ; //80
-        transform: rotate(-45deg);
-        // transform: scale(1.1);
-    }
-
-    100% {
-        margin-top: 100px;
-    }
-}
-@keyframes footer_obj_move2 {
-    0% {
-        margin-top: 150px;
-        // transform: translateY(0);
-    }
-
-    50% {
-        margin-top: 130px;
-    }
-
-    100% {
-        margin-top: 150px;
-    }
-}
-@keyframes footer_obj_move3 {
-    0% {
-        top: -20px;
-    }
-
-    50% {
-        top: 10px;
-    }
-
-    100% {
-        top: -20px;
-    }
-}
-@keyframes service_obj_move1 {
-    // 圓球
-    0% {
-        transform: translateX(5%) translateY(5%);
-        // left: 0px;
-        // bottom: 150px;
-    }
-
-    25% {
-        // left: 30px;
-        // bottom: 180px;
-        transform: translateX(10%) translateY(0);
-    }
-    50% {
-        // left: 0px;
-        // bottom: 210px;
-        transform: translateX(5%) translateY(-5%);
-    }
-    75%{
-        // left: -30px;
-        // bottom: 180px;
-        transform: translateX(0) translateY(0);
-    }
-
-    100% {
-        // left: 0px;
-        // bottom: 150px;
-        transform: translateX(5%) translateY(5%);
-    }
-}
-@keyframes service_obj_move2 {
-    // 方塊
-    0% {
-        transform: translateY(0) rotate(25deg);
-    }
-
-    50% {
-        transform: translateY(7%) rotate(30deg);
-    }
-
-    100% {
-        transform: translateY(0) rotate(25deg);
-    }
-}
-@keyframes service_obj_move3 {
-    // 彩球
-    0% {
-        transform: translateX(0) translateY(0) rotate(0) scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translateX(5%) translateY(7%) rotate(180deg) scale(.7);
-        opacity: .7;
-    }
-
-    100% {
-        transform: translateX(0) translateY(0) rotate(360deg) scale(1);
-        opacity: 1;
-    }
+@keyframes stick-animate2 {
+	0% {
+		opacity: 0;
+		width: 100px;
+	}
+	50% {
+		width: 140px;
+	}
+	100% {
+		opacity: 1;
+		width: 100px;
+	}
 }
 
+@keyframes footer-obj-move1 {
+	0% {
+		margin-top: 100px;
+	}
+	50% {
+		margin-top: 105px;
+		transform: rotate(-45deg);
+	}
+	100% {
+		margin-top: 100px;
+	}
+}
+
+@keyframes footer-obj-move2 {
+	0% {
+		margin-top: 150px;
+	}
+	50% {
+		margin-top: 130px;
+	}
+	100% {
+		margin-top: 150px;
+	}
+}
+
+@keyframes footer-obj-move3 {
+	0% {
+		top: -20px;
+	}
+	50% {
+		top: 10px;
+	}
+	100% {
+		top: -20px;
+	}
+}
+
+@keyframes service-obj-move1 {
+	// 圓球
+	0% {
+		transform: translateX(5%) translateY(5%);
+	}
+	25% {
+		transform: translateX(10%) translateY(0);
+	}
+	50% {
+		transform: translateX(5%) translateY(-5%);
+	}
+	75% {
+		transform: translateX(0) translateY(0);
+	}
+	100% {
+		transform: translateX(5%) translateY(5%);
+	}
+}
+
+@keyframes service-obj-move2 {
+	// 方塊
+	0% {
+		transform: translateY(0) rotate(25deg);
+	}
+	50% {
+		transform: translateY(7%) rotate(30deg);
+	}
+	100% {
+		transform: translateY(0) rotate(25deg);
+	}
+}
+
+@keyframes service-obj-move3 {
+	// 彩球
+	0% {
+		transform: translateX(0) translateY(0) rotate(0) scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: translateX(5%) translateY(7%) rotate(180deg) scale(0.7);
+		opacity: 0.7;
+	}
+	100% {
+		transform: translateX(0) translateY(0) rotate(360deg) scale(1);
+		opacity: 1;
+	}
+}

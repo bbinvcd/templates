@@ -1,19 +1,22 @@
 <template>
     <div class="mainnav-wrap">
         <div class="mainnav">
-            <ul class="clearfix">
-                <li v-for="item in navItems" :key="item.path" :id="item.id" :class="item.className" @mouseenter="showDropdown(item.category)" @mouseleave="hideDropdown">
-                    <router-link v-if="item.hasUrl" :to="item.path" :class="{ current: route.path === item.path }">
-                        <span v-if="item.category !== 'mores'">{{ item.name }}</span>
+            <ul class="nav-warp clearfix">
+                <li class="nav-item" v-for="item in navItems" :key="item.path" :id="item.id" :class="item.className" @mouseenter="showDropdown(item.category)" @mouseleave="hideDropdown">
+                    <router-link class="nav-link" v-if="item.hasUrl" :to="item.path" :class="{ current: route.path === item.path }">
+						<div v-if="item.hot" class="hot-icon"></div>
+                        <span class="nav-link-text" v-if="item.category !== 'mores'">{{ item.name }}</span>
                     </router-link>
-                    <a v-else :href="item.path" :class="{ current: route.path === item.path }">
-                        <span v-if="item.category !== 'mores'">{{ item.name }}</span>
+                    <a class="nav-link" v-else :href="item.path" :class="{ current: route.path === item.path }">
+						<div v-if="item.hot" class="hot-icon"></div>
+                        <span class="nav-link-text" v-if="item.category !== 'mores'">{{ item.name }}</span>
                     </a>
                 </li>
-                <li :key="navMores.path" :id="navMores.id" :class="navMores.className">
-                    <router-link :to="navMores.path">
+                <li class="nav-item" :key="navMores.path" :id="navMores.id" :class="navMores.className">
+                    <a class="nav-link" href="javascript:void(0)">
+						<div v-if="navMores.hot" class="hot-icon"></div>
                         <span v-if="navMores.category !== 'mores'">{{ navMores.name }}</span>
-                    </router-link>
+                    </a>
                     <div key="mores" id="nav-mores" class="ele-drop-group">
                         <div class="lsub-inner-wrap">
                             <a v-for="platform in navMores.platforms" :key="platform.pn_link" :href="platform.pn_link" :class="platform.pn_class">
@@ -57,76 +60,84 @@ const navItems = computed<NavItem[]>(() => {
         {
             name: "首页",
             path: "/",
-            id: "LS-first",
-            className: "LS-first",
+            id: "nav-first",
+            className: "nav-first",
             hasDropdown: false,
             hasUrl: true,
+			hot: false
         },
         {
             name: "体育赛事",
             path: "/sports_login",
-            id: "LS-ball",
-            className: "LS-ball",
+            id: "nav-ball",
+            className: "nav-ball",
             hasDropdown: true,
             category: "balls",
             platforms: navData.value?.balls || [],
             hasUrl: true,
+			hot: false
         },
         {
             name: "视讯直播",
             path: "/live",
-            id: "LS-live",
-            className: "LS-live",
+            id: "nav-live",
+            className: "nav-live",
             hasDropdown: true,
             category: "lives",
             platforms: navData.value?.lives || [],
             hasUrl: true,
+			hot: false
         },
         {
             name: "电子游艺",
             path: "/casino_login",
-            id: "LS-game",
-            className: "LS-game",
+            id: "nav-game",
+            className: "nav-game",
             hasDropdown: true,
             category: "games",
             platforms: navData.value?.games || [],
             hasUrl: true,
+			hot: true
         },
         {
             name: "彩票游戏",
             path: "/lottery",
-            id: "LS-lottery",
-            className: "LS-lottery",
+            id: "nav-lottery",
+            className: "nav-lottery",
             hasDropdown: true,
             category: "lotterys",
             platforms: navData.value?.lotterys || [],
             hasUrl: true,
+			hot: false
         },
         {
             name: "棋牌游戏",
             path: "/card",
-            id: "LS-card",
-            className: "LS-card",
+            id: "nav-card",
+            className: "nav-card",
             hasDropdown: true,
             category: "cards",
             platforms: navData.value?.cards || [],
             hasUrl: true,
+			hot: true
         },
         {
             name: "优惠活动",
             path: "/promotions",
-            id: "LS-memberexclusiveii",
-            className: "LS-memberexclusiveii",
+            id: "nav-memberexclusiveii",
+            className: "nav-memberexclusiveii",
             hasDropdown: false,
             hasUrl: true,
+			hot: false
         },
         {
             name: "手机下注",
             path: "javascript:void(0)",
-            id: "LS-mobile",
-            className: "LS-mobile",
+            id: "nav-mobile",
+            className: "nav-mobile",
             hasDropdown: false,
             hasUrl: false,
+			hot: false
         },
     ];
 
@@ -137,11 +148,12 @@ const navMores = computed(() => {
     const baseNavMores = {
         name: "更多",
         path: "javascript:void(0)",
-        id: "LS-more",
-        className: "LS-more",
+        id: "nav-more",
+        className: "nav-more",
         hasDropdown: true,
         category: "mores",
         platforms: navData.value?.mores || [],
+		hot: false
     };
 
     return baseNavMores;
@@ -163,222 +175,117 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@use "@/assets/scss/base/variables" as *; // 使用 @ 別名
+@use "@/assets/scss/base/variables" as *;
 @use "@/assets/scss/base/mixins" as *;
 // 導覽列選單
-.mainnav-wrap {
-    position: relative;
-    .mainnav {
-        * {
-            box-sizing: border-box;
+.nav-warp {
+    .nav-item {
+        float: left;
+        & > .nav-link {
+			position: relative;
+            display: block;
+            width: auto;
+            text-align: center;
+            font-size: 14px;
+            width: 88px;
+            height: 44px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 6px 6px 0;
+            line-height: 24px;
+            color: #292b33;
+            &.current,
+            &:hover {
+                color: #fff;
+                background: url("@/assets/image/nav_over.png") 0 0 no-repeat;
+            }
+            .nav-link-text {
+				padding: 0 10px;
+			}
+			.hot-icon {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 21px;
+				height: 12px;
+				background: url("@/assets/image/hot_01.png") 0 0 no-repeat;
+			}
         }
-        ul {
-            li {
-                position: relative;
-                // display: inline-block;
-                float: left;
-                vertical-align: middle;
-                width: 100px;
-                & > a {
-                    display: block;
-                    width: auto;
-                    text-align: center;
-                    font-size: 14px;
-
-                    width: 100px;
-                    height: 52px; //56
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-
-                    padding: 6px 6px 0;
-                    line-height: 24px;
-                    color: #292b33;
-                    &.current,
-                    &:hover {
-                        color: #fff;
-                        background: url("@/assets/image/nav_over.png") center top no-repeat;
-                    }
-                }
-                &.LS-more {
-                    margin: 10px 0 0 10px;
-                    & > a {
-                        display: block;
-                        width: 15px;
-                        height: 18px;
-                        background: url("@/assets/image/sub.png") 50% 50% no-repeat;
-                    }
-                }
-                &:hover {
-                    .ele-drop-group {
-                        display: block !important; // 覆蓋 inline style
-                    }
+        &.nav-more {
+            position: relative;
+            margin: 10px 0 0 10px;
+            & > a {
+                width: 15px;
+                height: 18px;
+                background: url("@/assets/image/sub.png") 50% 50% no-repeat;
+            }
+            &:hover {
+                .ele-drop-group {
+                    display: unset;
                 }
             }
         }
     }
 }
 
-// 下拉子選單  這邊的設定都只是為了特立獨行的more(也就是那個+號)
-@if $subnav-type==1 {
-    .ele-subnav-title {
-        display: block;
-        //height: 43px;
-        line-height: 43px;
-        text-align: center;
-        font-size: 14px;
-        color: rgb(255, 191, 0);
-        @include text-truncate;
-        @if $subnav-kind==1 {
-            background: #2a2a2a;
-        } @else if $subnav-kind==2 {
-            background: #424242;
-        } @else if $subnav-kind==3 {
-            background: #870000;
-        } @else if $subnav-kind==4 {
-            background: #ddd;
-            color: #f90c0b;
+.ele-drop-group {
+    display: none;
+    position: absolute;
+    left: 50%; // 從中間開始
+    transform: translateX(calc(-50vw + 50px)); // 向左移動自身寬度的一半
+    top: 100%;
+    width: 100vw;
+    z-index: 100;
+    min-width: $subnav-width;
+    box-shadow: rgba(16, 16, 16, 0.3) 2px 3px 3px;
+    box-sizing: content-box;
+    opacity: 0.95;
+    @if $subnav-kind == 1 {
+        background: rgba(18, 18, 18, 0.95);
+        a {
+            color: #fff;
+        }
+    } @else if $subnav-kind == 2 {
+        background: rgba(85, 85, 85, 0.95);
+        a {
+            color: #fff;
+        }
+    } @else if $subnav-kind == 3 {
+        background: rgba(249, 249, 249, 0.95);
+        a {
+            color: #333;
+        }
+    } @else if $subnav-kind == 4 {
+        background: rgba(255, 255, 255, 0.95);
+        a {
+            color: #333;
         }
     }
+    &#nav-mores {
+        width: 130px !important;
+        min-width: auto;
+        left: 0;
+        transform: translateX(calc(-50% + 13px)); // 向左移動下拉選單寬度的一半再往回推+號寬度的一半，才會剛好置中
+    }
+}
 
-    .ele-drop-group {
+.lsub-inner-wrap {
+    @include clearfix;
+    width: $subnav-width;
+    min-height: 200px;
+    margin: 0 auto;
+    padding-left: 225px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    #nav-mores & {
         width: 130px;
-        * {
-            box-sizing: border-box;
-        }
+        min-height: auto;
+        padding: 0;
+        margin: 0;
     }
-
-    .lsub-inner-wrap {
-        width: 100%;
-        border-width: 1px;
-        border-style: solid;
-        border: 1px solid $subnav-border;
-        box-shadow: rgba(16, 16, 16, 0.3) 2px 3px 3px;
-        a {
-            display: block;
-            height: 38px;
-            line-height: 38px;
-            font-size: 12px;
-            @include text-truncate;
-            padding: 0 10px 0 37px;
-            &:hover {
-                color: $subnav-hover;
-            }
-        }
-        @if $subnav-kind==1 {
-            background: rgba(0, 0, 0, 0.95);
-            a {
-                color: #fff;
-            }
-        } @else if $subnav-kind==2 {
-            background: rgba(85, 85, 85, 0.95);
-            a {
-                color: #fff;
-            }
-        } @else if $subnav-kind==3 {
-            background: rgba(255, 255, 255, 0.8);
-            a {
-                color: #000;
-            }
-        } @else if $subnav-kind==4 {
-            background: rgba(255, 255, 255, 0.8);
-            a {
-                color: #000;
-            }
-        }
-    }
-
-    #nav-game {
-        &.ele-drop-group {
-            width: 448px;
-        }
-        .lsub-inner-wrap {
-            @include clearfix;
-            a {
-                width: 25%;
-                float: left;
-            }
-        }
-    }
-} @else if $subnav-type==2 {
-    .ele-subnav-title {
-        display: none;
-    }
-    .ele-drop-group {
-        display: none;
-        position: absolute;
-        left: 50%; // 從中間開始
-        transform: translateX(calc(-50vw + 50px)); // 向左移動自身寬度的一半
-        top: 100%;
-        width: 100vw;
-        z-index: 100;
-        min-width: $subnav-width;
-        box-shadow: rgba(16, 16, 16, 0.3) 2px 3px 3px;
-        // padding: 30px 0;
-        box-sizing: content-box;
-        opacity: 0.95;
-        @if $subnav-kind==1 {
-            background: rgba(18, 18, 18, 0.95);
-            a {
-                color: #fff;
-            }
-        } @else if $subnav-kind==2 {
-            background: rgba(85, 85, 85, 0.95);
-            a {
-                color: #fff;
-            }
-        } @else if $subnav-kind==3 {
-            background: rgba(249, 249, 249, 0.95);
-            a {
-                color: #333;
-            }
-        } @else if $subnav-kind==4 {
-            background: rgba(255, 255, 255, 0.95);
-            a {
-                color: #333;
-            }
-        }
-        &#nav-mores {
-            width: 130px !important;
-            min-width: unset;
-            left: 0; // 從中間開始
-            transform: translateX(calc(-50% + 7px)); // 向左移動自身寬度的一半
-        }
-    }
-
-    .lsub-inner-wrap {
-        @include clearfix;
-        width: $subnav-width;
-        min-height: 200px;
-        margin: 0 auto;
-        padding-left: 225px;
-        background-repeat: no-repeat;
-        background-position: left top;
-        #nav-mores & {
-            width: 130px;
-            min-height: auto;
-            padding: 0;
-            margin: 0;
-        }
-        a {
-            span {
-                display: block;
-                @if $subnav-width < 1065px {
-                    width: calc(($subnav-width - 225px) / 6);
-                } @else if $subnav-width < 1185px {
-                    width: calc(($subnav-width - 225px) / 7);
-                } @else if $subnav-width < 1305px {
-                    width: calc(($subnav-width - 225px) / 8);
-                } @else if $subnav-width < 1425px {
-                    width: calc(($subnav-width - 225px) / 9);
-                } @else {
-                    width: 120px;
-                }
-                height: 40px;
-                background-repeat: no-repeat;
-            }
-
-            float: left;
+    a {
+        span {
             display: block;
             @if $subnav-width < 1065px {
                 width: calc(($subnav-width - 225px) / 6);
@@ -391,24 +298,38 @@ onMounted(() => {
             } @else {
                 width: 120px;
             }
-            height: 90px;
-            font-size: 14px;
+            height: 40px;
+            background-repeat: no-repeat;
+        }
+
+        float: left;
+        display: block;
+        @if $subnav-width < 1065px {
+            width: calc(($subnav-width - 225px) / 6);
+        } @else if $subnav-width < 1185px {
+            width: calc(($subnav-width - 225px) / 7);
+        } @else if $subnav-width < 1305px {
+            width: calc(($subnav-width - 225px) / 8);
+        } @else if $subnav-width < 1425px {
+            width: calc(($subnav-width - 225px) / 9);
+        } @else {
+            width: 120px;
+        }
+        height: 90px;
+        font-size: 14px;
+        text-align: center;
+        @include text-truncate;
+        &:hover {
+            color: $subnav-hover;
+        }
+        #nav-mores & {
+            width: 130px;
+            height: 38px;
+            line-height: 38px;
+            font-size: 12px;
             text-align: center;
-            @include text-truncate;
-            &:hover {
-                color: $subnav-hover;
-            }
-            #nav-mores & {
-                background: none;
-                width: 130px;
-                height: 38px;
-                line-height: 38px;
-                padding: 0 10px 0 37px;
-                font-size: 12px;
-                text-align: left;
-                &:before {
-                    display: none;
-                }
+            &:before {
+                display: none;
             }
         }
     }

@@ -18,7 +18,7 @@ $header: false; //true = 固定; false = 不固定;
 
 //====== LOGO寬高
 $logo-width: 152px;
-$logo-height: 68px;
+$logo-height: 66px;
 
 //====== 首頁輪播圖
 $first-slider: true; //true = 使用; false = 不使用;
@@ -41,16 +41,21 @@ $promotions-type: light; //light = 淺色版; dark = 深色版;
 $lang: "lang/zh-cn/";
 
 // 主風格或常用的配色，自行修改
-$black: #000 !default;
+$black: "#000";
 
 // 基本顏色設定
 $body-bg: #eaedfa;
 $text-color: #292b33;
-$link-color: #000;
+$link-color: #292b33;
 $link-hover-color: #fff !default;
 
 // 基本文字設定
-//## Font, line-height, and color for body text, and more.
-$font-family-base: Microsoft YaHei, Helvetica, STHeiti, arial, sans-serif !default;
+$font-family-base:
+	"Noto Sans CJK TC",
+	Microsoft YaHei,
+	Helvetica,
+	STHeiti,
+	arial,
+	sans-serif !default;
 $font-size-base: 16px !default;
 $line-height-base: 1.8 !default;
